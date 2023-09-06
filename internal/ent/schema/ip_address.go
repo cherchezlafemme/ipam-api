@@ -43,7 +43,7 @@ func (IPAddress) Fields() []ent.Field {
 			Comment("The ip address.").
 			Annotations(
 				entgql.OrderField("IP"),
-			),
+			).Validate(IsValidIPAddress),
 		field.String("block_id").
 			GoType(gidx.PrefixedID("")).
 			Immutable().
