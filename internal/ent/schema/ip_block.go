@@ -43,7 +43,8 @@ func (IPBlock) Fields() []ent.Field {
 			Comment("The prefix of the ip block.").
 			Annotations(
 				entgql.OrderField("PREFIX"),
-			),
+			).
+			Validate(IsValidIPPrefix),
 		field.String("block_type_id").
 			GoType(gidx.PrefixedID("")).
 			Immutable().
